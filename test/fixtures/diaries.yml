@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  live_image_id: MyString
+  artist_name: MyString
+  live_name: MyString
+  title: MyString
+  impression: MyText
+  date: 2020-06-19
+
+two:
+  user_id: 1
+  live_image_id: MyString
+  artist_name: MyString
+  live_name: MyString
+  title: MyString
+  impression: MyText
+  date: 2020-06-19
