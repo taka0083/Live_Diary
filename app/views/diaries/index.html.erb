@@ -1,2 +1,12 @@
 <h1>Diaries#index</h1>
 <p>Find me in app/views/diaries/index.html.erb</p>
+
+
+<%= @diaries.each do |diary| %>
+<table class="table">
+	<td><%= diary.date %></td>
+	<td><%= diary.user.name %></td>
+	<td><%= diary.artist_name %></td>
+	<td><%= diary.live_name %></td>
+</table>
+<% end %>
