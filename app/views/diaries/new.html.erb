@@ -9,6 +9,8 @@
   </div>
 <% end %>
 <%= form_for @diary,:url => {:action => :create} do |f| %>
+
+    <%= f.attachment_field :live_image, format: 'jpeg' ,class: "file" %>
 	<div>
 		<%= f.label :日付 %>
 		<%= f.date_field :date %>
