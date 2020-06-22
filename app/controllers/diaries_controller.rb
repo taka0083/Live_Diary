@@ -5,11 +5,20 @@ class DiariesController < ApplicationController
   end
 
   def show
+    @diary=Diary.find(params[:id])
   end
 
-
-
   def edit
+    @diary=Diary.find(params[:id])
+  end
+
+  def update
+    @diary=Diary.find(params[:id])
+    if @diary.update(diary_params)
+      redirect_to diary_path(@diary)
+    else
+      render 'edit'
+    end
   end
 
   def new
@@ -29,7 +38,7 @@ class DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist)
+    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist,:live_image)
   end
 
 end

@@ -1,2 +1,34 @@
-<h1>Diaries#show</h1>
-<p>Find me in app/views/diaries/show.html.erb</p>
+<div class="row">
+	<%= render'layouts/sidebar' %>
+	<div class="col-sm-9">
+		<div class="row justify-content-center" >
+			<div class="col-6">
+				<h3>日付</h3>
+				<%= @diary.date %>
+				<h3>アーティスト</h3>
+				<%= @diary.artist_name %>
+				<h3>ライブ名</h3>
+				<%= @diary.live_name %>
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" date-toggle="dropdown">
+					<h3>セットリスト</h3></button>
+					<div class="dropdown-menu bg-light">
+					<h5><%= @diary.setlist %></h5>
+					</div>
+				</div>
+				<div class="dropdown my-3">
+					<button class="btn dropdown-toggle" date-toggle="dropdown">
+				<h3>
+				<%= @diary.title %>
+				</h3></button>
+				<div class="dropdown-menu bg-light">
+				<h5>
+				<%= @diary.impression %>
+				</h5>
+				</div>
+				<%= link_to "Edit" ,edit_diary_path %>
+
+			</div>
+		</div>
+	</div>
+</div>

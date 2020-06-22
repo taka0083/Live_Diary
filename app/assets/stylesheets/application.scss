@@ -18,4 +18,12 @@
 
 
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+	}
+
+li{
+	padding-top:20px;
+}

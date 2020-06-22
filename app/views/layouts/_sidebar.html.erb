@@ -1,0 +1,20 @@
+<div class="col-sm-2 bg-dark mx-2" style="height:100%;">
+	<h1 class="my-2 text-white">
+		sidebar
+	</h1>
+	 <ul class="list-unstyled text-white">
+	 	<%= link_to diaries_path do %>
+	 		<li>All Diary</li>
+	 	<% end %>
+	 	<li>Frends Diary</li>
+	 	<%= link_to user_path(current_user.id) do %>
+	 	<li>My page</li>
+	 	<% end %>
+	 	<li>Culender</li>
+	 	<%= link_to new_diary_path do %>
+	 	<li>Write Diary</li>
+	 	<% end %>
+	 	<li> <%= link_to "logout", destroy_user_session_path,class:" glyphicon glyphicon-log-out", method: :delete %>
+		</li>
+	 </ul>
+</div>
