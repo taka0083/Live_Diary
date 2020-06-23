@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_073343) do
+ActiveRecord::Schema.define(version: 2020_06_20_082511) do
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_19_073343) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "setlist"
   end
 
   create_table "diary_comments", force: :cascade do |t|

@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :diaries, dependent: :destroy
+  attachment :user_image
 end
