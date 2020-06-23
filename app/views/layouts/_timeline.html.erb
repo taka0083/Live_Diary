@@ -1,0 +1,49 @@
+<%= diaries.each do |diary| %>
+
+	<div class="row justify-content-center" >
+		<!-- diary本体 -->
+		<div class="col-6 my-3"style="border:solid 1px #000;height:40%;">
+				<%= link_to diary_path(diary) do %>
+	      <div class="row">
+	      	<!-- 左半分 -->
+	      	<div class="col-6">
+	      		<!-- 名前とアイコン -->
+	      		<div class="row ">
+	      			<div class="col-4 mt-1"><%= attachment_image_tag @user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%></div>
+	      			<div class="col-8 my-auto"><%= diary.user.name %></div>
+	      		</div>
+	      		<!-- ライブの写真 -->
+	      		<div class="row">
+	      			<div class="col-12 my-3"> <%= attachment_image_tag @diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg"%></div>
+	      		</div>
+	      	</div>
+	      	<!-- 右半分 -->
+	      	<div class="col-6">
+	      		<div class="row">
+	      			<!-- 日付 -->
+							<div class="col-12 text-right">
+								<h3><%= diary.date %></h3>
+							</div>
+					  </div>
+					  <!-- ライブについて -->
+					  <div class="row ">
+					  	<div class="card">
+					  		<div class="card-body">
+					  			<h3 class="card-title">
+						  			<%= diary.artist_name %>
+						  		</h3>
+						  		<h4 class="card-subtitle">
+						  			<%= diary.live_name %>
+						  		</h4>
+						  		<p class="card-text">
+						  			<%= diary.title %>
+						  		</p>
+						  	</div>
+							</div>
+						</div>
+					</div><!--右半分-->
+				</div><!--row-->
+				<% end %>
+		</div><!--col-6 diary本体-->
+	</div><!--row justify-content-center-->
+<% end %><!--each分-->
