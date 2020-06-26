@@ -8,7 +8,14 @@
 	      <% if @user==current_user %>
 	      	<div class="col-4 my-auto"><%= link_to "プロフィール編集", edit_user_path(user)%></div>
 	      <% else %>
-	      	<div class="col-4 my-auto">フォローする</div>
+
+	      	<div class="col-4 my-auto">
+            <% if current_user.following?(user) %>
+              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+            <% else %>
+              <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+            <% end %>
+	      	</div>
 	      <% end %>
 	  </div>
 	  <div class="row">

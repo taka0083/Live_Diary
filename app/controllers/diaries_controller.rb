@@ -7,6 +7,7 @@ class DiariesController < ApplicationController
   def show
     @diary=Diary.find(params[:id])
     @user = @diary.user
+    @comment = Comment.new
   end
 
   def edit
