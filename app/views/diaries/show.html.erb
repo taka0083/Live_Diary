@@ -29,6 +29,37 @@
 				</div>
 				<%= link_to "Edit" ,edit_diary_path %>
 
+				<!-- コメント一覧 -->
+				<% @diary.comment.each do |comment| %>
+				<div class="row">
+					<div class="col-4">
+						<%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
+          </div>
+          <div class="col-8"><%= comment.user.name %></div>
+            <span class="comment-meta">
+              <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+            </span>
+          </div>
+          <div class="comment-entry"><%=comment.comment %></div>
+					</div>
+					<div>
+    				<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right" %>
+  				</div>
+        <% end %>
+
+
+
+					<%= form_for [@diary, @comment] do |f| %>
+					    <div class="row">
+					        <div class="col-sm-12">
+					            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+					        </div>
+					    </div>
+					    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+					<% end %>
+
+
+
 			</div>
 		</div>
 	</div>
