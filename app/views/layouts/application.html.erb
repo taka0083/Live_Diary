@@ -4,12 +4,17 @@
     <title>LiveDiary</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+     <script src="https://kit.fontawesome.com/f2ca94efa4.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div clsss="container">
+    <%= render 'layouts/header' %>
     <%= yield %>
+    </div>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

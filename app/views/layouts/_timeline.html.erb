@@ -1,0 +1,69 @@
+<%= diaries.each do |diary| %>
+
+	<div class="row justify-content-center" >
+		<!-- diary本体 -->
+		<div class="col-6 my-3"style="border:solid 1px #000;height:40%;">
+
+				<%= link_to diary_path(diary) do %>
+				<!-- ヘッダー -->
+	      <div class="row justify-content-center"style="height:50px;background-color:	#FFD700;">
+	      	<div class="col-2 mt-1"><%= attachment_image_tag @user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "40x40" %></div>
+	      	<div class="col-7 pl-0 align-self-center text-left"><%= diary.user.name %></div>
+	      	<div class="col-3 align-self-center">	<%= diary.date %></div>
+	      	</div>
+
+	      		<!-- ライブの写真 -->
+	      	<div class="row">
+	      			<div class="col-6 my-3"> <%= attachment_image_tag @diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg"%></div>
+
+	      	<!-- 右半分 -->
+	      	<div class="col-6">
+	      		<div class="row">
+
+					  </div>
+
+					  <!-- ライブについて -->
+					  	<div class="col-4">
+					  		<p><i class="fad fa-user-music"></i></p>
+					  	</div>
+					  	<div class="col-8">
+					  		<h3><%= diary.artist_name %></h3>
+					  	</div>
+					  	<div class="col-4">
+						  	<p>ライブ名</p>
+						  </div>
+						  <div class="col-8">
+						  	<h4><%= diary.live_name %></h4>
+						  </div>
+						  <div class="col-4">
+						  	<p>タイトルaa</p>
+						  </div>
+						  <div class="col-8">
+						  	<h4><%= diary.title %></h4>
+						  </div>
+
+
+						<div class="row">
+							<div class="col-6">
+								<p><%= diary.comment.count%><i class="fas fa-comments"></i></p>
+							</div>
+
+							<div class="col-6">
+								<% if diary.favorited_by?(current_user) %>
+								<p><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+	    						<%= @post_image.favorites.count %> いいね</p>
+	    				  <% else %>
+	    				 		<p>
+							    <i class="fa fa-heart-o" aria-hidden="true"></i>
+							    <%= diary.favorites.count %> いいね
+							    </p>
+							  <% end %>
+							</div>
+						</div>
+
+					</div><!--右半分-->
+				</div><!--row-->
+				<% end %>
+		</div><!--col-6 diary本体-->
+	</div><!--row justify-content-center-->
+<% end %><!--each分-->

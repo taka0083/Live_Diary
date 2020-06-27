@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_073343) do
+ActiveRecord::Schema.define(version: 2020_06_26_055132) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "diary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_06_19_073343) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "setlist"
+    t.string "place"
   end
 
   create_table "diary_comments", force: :cascade do |t|
@@ -41,12 +51,12 @@ ActiveRecord::Schema.define(version: 2020_06_19_073343) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "following_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index ["following_id"], name: "index_relationships_on_following_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,6 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//bootstrap追加分
+//= require jquery
+//= require popper
+//= require bootstrap
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+	<%= render'layouts/sidebar' %>
+	<div class="col-sm-9">
+		<!-- プロフィールテンプレート -->
+		<%= render'layouts/profile',user:@user %>
+	    <% if @user.diaries.count == 0 %>
+	    	<h2>投稿がありません</h2>
+	    <%else%>
+ 				<%= render'layouts/timeline',diaries:@diaries %>
+	    <%end%>
+	</div>
+</div>
