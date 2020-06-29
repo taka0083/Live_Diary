@@ -54,11 +54,14 @@
 								<p><i class="fas fa-comments"></i><%= diary.comment.count%>
 							<!-- いいね -->
 								<% if diary.favorited_by?(current_user) %>
+								 <%= link_to diary_favorites_path(diary), method: :delete do %>
 									<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-	    						<%= @post_image.favorites.count %>
+	    						<%= diary.favorites.count %>
+	    						<%end%>
 	    				  <% else %>
+	    				  <%= link_to diary_favorites_path(diary), method: :post do %>
 							    <i class="fa fa-heart-o" aria-hidden="true"></i>
-							    <%= diary.favorites.count %>
+							    <%= diary.favorites.count %><%end%>
 							    </p>
 							  <% end %>
 							</div>

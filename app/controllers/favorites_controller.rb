@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
             diary = Diary.find(params[:diary_id])
             favorite = current_user.favorites.new(diary_id: diary.id)
             favorite.save
-            redirect_to prequest.referrer
+            redirect_to request.referrer
         end
         def destroy
             diary = Diary.find(params[:diary_id])
@@ -12,5 +12,5 @@ class FavoritesController < ApplicationController
             redirect_to request.referrer
         end
 
-≈
+
 end

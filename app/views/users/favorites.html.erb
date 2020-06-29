@@ -1,6 +1,9 @@
 <div class="row">
 	<%= render'layouts/sidebar' %>
+
+	<div class="col-sm-9">
 	<!-- プロフィールテンプレート -->
-	<%= render'layouts/profile',user:@user,favoriting:@favorite%>
-	<%= render'layouts/timeline',diary:@diary%>
+	<%= render'layouts/profile',user:@user%>
+	<%= render'layouts/timeline',diaries:@diaries%>
+	</div>
 </div>

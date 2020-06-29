@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   end
   def favorites
     @user=User.find(params[:id])
-    @favorite = Favorite.where(user_id:@user.id)
-    @favorite.diary =@diary
+    @diaries = Diary.joins(:favorites).where(favorites: {user_id: @user.id})
   end
 
   def follow

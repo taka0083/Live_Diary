@@ -39,6 +39,7 @@ class DiariesController < ApplicationController
   end
 
   def follower
+    @diaries = Diary.where(user_id:current_user.follower.ids)
   end
 
   private

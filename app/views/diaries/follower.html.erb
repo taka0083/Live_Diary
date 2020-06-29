@@ -2,7 +2,7 @@
 	<%= render'layouts/sidebar' %>
 	<div class="col-sm-9">
 	<h1>タイムライン</h1>
-  <%= render'layouts/timeline',diaries:@diaries.follower_user.where.not(id: current_user.id) %>
+  <%= render'layouts/timeline',diaries:@diaries%>
 
 	</div><!--col-sm-9-->
 </div><!--一番上のrow-->
