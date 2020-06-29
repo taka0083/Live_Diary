@@ -6,7 +6,8 @@
 	 	<%= link_to diaries_path do %>
 	 		<li>All Diary</li>
 	 	<% end %>
-	 	<li>Frends Diary</li>
+	 	<%= link_to diary_follower_path do %>
+	 	<li>Frends Diary</li><%end%>
 	 	<%= link_to user_path(current_user.id) do %>
 	 	<li>My page</li>
 	 	<% end %>

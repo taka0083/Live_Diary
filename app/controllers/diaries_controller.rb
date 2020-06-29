@@ -38,9 +38,12 @@ class DiariesController < ApplicationController
     end
   end
 
+  def follower
+  end
+
   private
   def diary_params
-    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist,:live_image)
+    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist,:live_image,:place)
   end
 
 end

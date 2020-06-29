@@ -16,6 +16,20 @@ class UsersController < ApplicationController
   		render 'edit'
   	end
   end
+  def favorites
+    @user=User.find(params[:id])
+    @favorite = Favorite.where(user_id:@user.id)
+    @favorite.diary =@diary
+  end
+
+  def follow
+    @user = User.find(params[:id])
+  end
+  def follower
+    @user = User.find(params[:id])
+  end
+
+
 
   private
   def user_params

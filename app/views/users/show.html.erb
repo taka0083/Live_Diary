@@ -2,7 +2,7 @@
 	<%= render'layouts/sidebar' %>
 	<div class="col-sm-9">
 		<!-- プロフィールテンプレート -->
-		<%= render'layouts/profile',user:@user %>
+		<%= render'layouts/profile',user:@user,favoriting:@favorite%>
 	    <% if @user.diaries.count == 0 %>
 	    	<h2>投稿がありません</h2>
 	    <%else%>

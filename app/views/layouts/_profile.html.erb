@@ -18,10 +18,16 @@
 	      	</div>
 	      <% end %>
 	  </div>
-	  <div class="row">
-	    <div class="col">フォロワーここ</div>
-	    <div class="col">フォロー</div>
-	    <div class="col">いいね</div>
+	  <div class="row my-3">
+	    <div class="col text-center">フォロワー<br>
+	    	<%= link_to users_follower_path(user) do%>
+	    	<%= user.follower_user.count %><%end%></div>
+	    <div class="col text-center">フォロー<br>
+	    	<%= link_to users_follow_path(user) do%>
+	    	<%= user.following_user.count %><%end%></div>
+	    <div class="col text-center">いいね<br>
+	    	<%= link_to users_favorite_path(user) do%>
+	    	<%= user.favorites.count %><%end%></div>
 	  </div>
 	</div>
 </div>

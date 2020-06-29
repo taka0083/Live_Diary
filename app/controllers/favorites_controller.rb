@@ -11,4 +11,6 @@ class FavoritesController < ApplicationController
             favorite.destroy
             redirect_to request.referrer
         end
+
+≈
 end
