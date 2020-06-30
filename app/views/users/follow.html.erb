@@ -1,11 +1,22 @@
-<h2>フォロー一覧</h2>
-  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
-    <p>
-      <% if current_user.following?(user) %>
-        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
-      <% end %>
-      <%= link_to "show", user_path(user) %>
-    </p>
-  <% end %>
+<div class="row">
+  <%= render'layouts/sidebar' %>
+  <div class="col-sm-9">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h2>フォロー中</h2>
+        <% @user.following_user.where.not(id: @user.id).each do |user| %>
+        　<div class="table table-dark">
+          <tr>
+            <td><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></td>
+            <td><%= user.name %></td>
+          <% if current_user.following?(user) %>
+            <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></td>
+          <% else %>
+            <td><%= link_to 'フォローする', follow_path(user.id), method: :POST %></td>
+          <% end %>
+            <td><%= link_to "show", user_path(user) %></td>
+          </tr>
+        <% end %>
+    </div>
+  </div>
+</div>
