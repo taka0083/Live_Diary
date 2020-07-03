@@ -64,7 +64,9 @@
 								<h3>写真</h3>
 							</div>
 							<div class="card-body text-center">
+
 								<%= attachment_image_tag @diary, :live_image, format: 'jpeg'  ,class:"img-fluid" ,fallback: "no_image.jpg"%>
+
 							</div>
 						</div>
 					</div>
@@ -80,7 +82,7 @@
 									<h3>セットリスト</h3>
 								</div>
 								<div class="collapse" id="ac1" data-parent="#events-info">
-									<div class="card-body"><%= @diary.setlist %></div>
+									<div class="card-body align-content-center"><%= simple_format(@diary.setlist) %></div>
 								</div>
 							</div>
 						</div>
@@ -89,29 +91,61 @@
 
 				<div class="row mt-3">
 					<div class="col">
-						<div id="events-info">
-							<div class="card">
-								<div class="card-header " data-toggle="collapse" data-target="#ac2">
-									<h3>感想</h3>
-								</div>
-								<div class="collapse" id="ac2" data-parent="#events-info">
-									<div class="card-body">
-										<h4 class="card-title"><%= @diary.title %></h4>
-										<p class="card-text"><%= @diary.impression %></p>
-									</div>
-								</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>感想</h3>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title"><%= @diary.title %></h4>
+								<div class="card-text"><%= @diary.impression %></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
+
+
+				<div class="row mt-3" >
+					<div class="col">
+						<div class="card">
+							<div class="card-header">タグ</div>
+							<div class="card-body">
+			  				<% @diary.tag_list.each do |tag| %>
+			    				<span class="badge badge badge-info">
+			      				<%= tag %>
+			    				</span>
+			  				<% end %>
+			  			</div>
+				  	</div>
+				  </div>
+				</div>
+
 				<% if @user == current_user %>
-				<div class="row　mt-3">
+				<div class="row mt-3">
 					<div class="col">
 					<%= link_to "編集する" ,edit_diary_path ,class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 					</div>
 				</div>
 				<%end%>
+
+
+				<div class="row mt-3">
+					<div class=col>
+						<div class="card">
+							<div class="card-header">
+								<h3>いいねした人</h3>
+							</div>
+							<div class="card-body">
+								<% @diary.favorites.each do |favorite| %>
+									<%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
+            			<%= favorite.user.name %>
+            		<%end%>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<!-- コメント一覧 -->
 			<div class="row mt-3">
@@ -122,16 +156,16 @@
 							</div>
 							<% @diary.comment.each do |comment| %>
 
-								<div class="card-body">
+								<div class="card-body p-2">
 									<div class="col-12">
 								<%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
              		<%= comment.user.name %>
-              	<span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+              	<span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
           				</div>
-          				<div class="col-10 border-primary"><%=comment.comment %></div>
+          				<div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
           				<% if comment.user_id == current_user.id %>
 										<div class="col text-right">
-    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right" %>
+    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm" %>
   									</div>
   								<% end %>
   							</div>

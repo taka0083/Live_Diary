@@ -2,7 +2,12 @@
 		<div class="row">
 			<div class=col-sm-4>左</div>
 			<div class=col-sm-4>
-				<%= link_to " 投稿", new_diary_path %>
+				<%= form_tag diaries_path, :method => 'get' do %> <%#projects_pathはモデル名で読みかえること %>
+				  <p>
+				    <%= text_field_tag :search, params[:search] %>
+				    <%= submit_tag "Search", :name => nil %>
+				  </p>
+				<% end %>
 			</div>
 			<div class=col-sm-4>
 

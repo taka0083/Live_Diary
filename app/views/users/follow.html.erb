@@ -5,7 +5,7 @@
       <div class="col-6">
         <h2>フォロー中</h2>
         <% @user.following_user.where.not(id: @user.id).each do |user| %>
-        　<div class="table table-dark">
+         <div class="table table-dark">
           <tr>
             <td><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></td>
             <td><%= user.name %></td>

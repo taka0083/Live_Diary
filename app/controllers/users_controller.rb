@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authenticate_user!
   def show
   	@user = User.find(params[:id])
   	@diaries =@user.diaries
@@ -26,6 +27,9 @@ class UsersController < ApplicationController
   end
   def follower
     @user = User.find(params[:id])
+  end
+
+  def top
   end
 
 

@@ -41,6 +41,11 @@
 			<%= f.label :コメント %>
 			<%= f.text_area :impression %>
 		</div>
+		  <div class="tags">
+		    <%= f.label :tag_list,"タグをカンマ区切りで入力" %>
+		    <%= text_field_tag 'diary[tag_list]', @diary.tag_list.join(","), data: {role: "tagsinput"} %>
+		  </div>
+		<div>
 		<div>
 			<%= f.submit "登録" %>
 		</div>

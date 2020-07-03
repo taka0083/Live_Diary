@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root 'home#top'
+
 
   devise_for :users
-  root 'diaries#index'
+
   resources :users, only: [:show, :edit, :update]
   get 'users/:id/favorites' => 'users#favorites',as: 'users_favorite'
   get 'users/:id/follow' => 'users#follow',as: 'users_follow'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 
 get 'diaries/follower' => 'diaries#follower',as: 'diaries_follower'
+get 'diaries/search' => 'diaries#search',as: 'diaries_search'
   resources :diaries, only: [:index,:show,:edit,:new,:update,:destroy,:create] do
   	resources :comments, only: [:create,:destroy]
   	resource :favorites, only: [:create,:destroy]

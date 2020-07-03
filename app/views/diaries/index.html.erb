@@ -1,7 +1,11 @@
 <div class="row">
 	<%= render'layouts/sidebar' %>
-	<div class="col-sm-9">
-	<h1>タイムライン</h1>
+	<div class="col-sm-9 ">
+		<div class="text-center">
+			<div class="col border-bottom border-dark">
+				<h1 >All Diary</h1>
+			</div>
+		</div>
   <%= render'layouts/timeline',diaries:@diaries %>
 
 	</div><!--col-sm-9-->

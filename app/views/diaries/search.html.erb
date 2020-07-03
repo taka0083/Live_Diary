@@ -1,0 +1,20 @@
+<div class="row">
+	<%= render'layouts/sidebar' %>
+	<div class="col-sm-9 ">
+		<div class="text-center">
+			<div class="col border-bottom border-dark">
+				<h1 >SEARCH!</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<%= form_tag diaries_search_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+				  <p>
+				    <%= text_field_tag :search, params[:search] %>
+				    <%= submit_tag "Search", :name => nil %>
+				  </p>
+				<% end %>
+  <%= render'layouts/timeline',diaries:@diaries %>
+
+	</div><!--col-sm-9-->
+</div><!--一番上のrow-->

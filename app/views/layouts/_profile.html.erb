@@ -1,9 +1,9 @@
 <div class="row justify-content-center" >
 	<!-- user情報 -->
-	<div class="col-6 my-3"style="border:solid 1px #000;">
+	<div class="col-6 my-3"style="border:solid 1px #000;background-color:white;">
 		<div class="row ">
-	      <div class="col-4 mt-1"><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></div>
-	      <div class="col-4 my-auto"><%= @user.name %></div>
+	      <div class="col-2 mt-1"><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></div>
+	      <div class="col-4 my-auto text-left"><%= @user.name %></div>
 	      	<!-- ログインが自分か他人か -->
 	      <% if @user==current_user %>
 	      	<div class="col-4 my-auto"><%= link_to "プロフィール編集", edit_user_path(user)%></div>
@@ -11,9 +11,9 @@
 
 	      	<div class="col-4 my-auto">
             <% if current_user.following?(user) %>
-              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST ,class: "btn btn-outline-warning btn-sm"%>
             <% else %>
-              <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+              <%= link_to 'フォローする', follow_path(user.id), method: :POST ,class: "btn btn-outline-primary btn-sm" %>
             <% end %>
 	      	</div>
 	      <% end %>

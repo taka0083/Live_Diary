@@ -1,7 +1,11 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @diaries =Diary.all
+    @diaries =Diary.all.reverse_order
+  end
+
+  def search
+    @diaries =Diary.search(params[:search])
   end
 
   def show
@@ -31,7 +35,7 @@ class DiariesController < ApplicationController
     @diary =Diary.new(diary_params)
     @diary.user_id=current_user.id
     if @diary.save
-    redirect_to diaries_path
+    redirect_to diary_path(diary)
     flash[:notice] ="投稿しました"
     else
       render 'new'
@@ -44,7 +48,7 @@ class DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist,:live_image,:place)
+    params.require(:diary).permit(:artist_name,:live_name,:title,:impression,:date,:user_id,:setlist,:live_image,:place, :tag_list)
   end
 
 end

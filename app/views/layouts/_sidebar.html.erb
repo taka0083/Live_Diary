@@ -12,6 +12,9 @@
 	 	<%= link_to user_path(current_user.id) do %>
 	 	<li>My page</li>
 	 	<% end %>
+	 	<%= link_to diaries_search_path do %>
+	 	<li>Search</li>
+	 	<%end%>
 	 	<li>Culender</li>
 	 	<%= link_to new_diary_path do %>
 	 	<li>Write Diary</li>

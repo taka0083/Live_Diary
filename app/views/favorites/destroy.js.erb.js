@@ -1,0 +1,1 @@
+$('#likes_buttons_<%= @diary.id %>').html("<%= render'layouts/favorite',diary:@diary  %>");
