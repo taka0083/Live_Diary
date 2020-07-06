@@ -20,12 +20,22 @@
 }
 
 .about{
-	background-color:white;
-	opacity:0.5;
+	background-color:rgba(218,162,90,0.5);
 	width:100%;
 	margin-top:200px;
 	height:50vh;
 	text-align:center;
+}
+
+.about-main{
+    padding:10px;
+	color:white;
+	opacity:0.8;
+}
+
+.about-text{
+	color:white;
+	opacity:0.8;
 }
 
 
@@ -190,8 +200,8 @@
                 }
             }
         }
-        
-        
+
+
         // Click-down styles
         &:focus {
             background: #232F39;
@@ -202,15 +212,14 @@
                 opacity: 0;
             }
         }
-        
-        
+
         // Don't forget about inverse colors!
         &.reverse {
             &:hover {
                 color: white !important;
 
                 &::after { background: white; }
-                
+
                 span {
                     &:first-child,
                     &:last-child {
@@ -221,7 +230,7 @@
                     }
                 }
             }
-            
+
             &:focus {
                 span {
                     &:first-child,
@@ -252,4 +261,54 @@ to {
     opacity: 1;
     transform: translateY(0px);
 }
+
+
+
+@keyframes sheen {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
+}
+}
+.wrapper {
+  display: block;
+  padding-top:30px;
+}
+.button-signup {
+  padding: 0.75em 2em;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  border: 2px solid $gold;
+  font-size: 24px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: $gold;
+    color: #fff;
+    border-bottom: 4px solid darken($gold, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+     transition: all 0.5s ease-in-out;
+    }
+  }
+
 }

@@ -2,25 +2,25 @@
 
 	<div class="row justify-content-center" >
 		<!-- diary本体 -->
-		<div class="col-6 my-3"style="border:solid 1px #000;height:40%;background-color:white;">
+		<div class="col-md-6 my-3 box"style="border:solid 1px #DAA25A;height:40%;background-color:#FFFFF0;">
 
 				<!-- ヘッダー -->
-	      <div class="row justify-content-center"style="height:50px;background-color:#cccccc;">
+	      <div class="row justify-content-center"style="height:50px;background-color:rgba(218,162,90,0.5)">
 	      	<div class="col-2 mt-1">
 	      		<%= link_to user_path(diary.user) do %>
 	      		<%= attachment_image_tag @user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "40x40" %><%end%></div>
-	      	<div class="col-7 pl-0 align-self-center text-left">
+	      	<div class="col-6 pl-0 align-self-center text-left">
 	      		<%= link_to user_path(diary.user) do %>
 	      		<%= diary.user.name %><%end%></div>
-	      	<div class="col-3 align-self-center">	<%= diary.date %></div>
+	      	<div class="col-md-4 align-self-center text-right">	<%= diary.date %></div>
 	      	</div>
 
 	      		<!-- ライブの写真 -->
 	      	<div class="row">
-	      			<div class="col-6 my-3"> <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg",size: "250x250"%></div>
+	      			<div class="col-md-6 my-3"> <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg",size: "250x250"%></div>
 
 	      	<!-- 右半分 -->
-	      	<div class="col-6 ">
+	      	<div class="col-md-6 ">
 	      		<div class="row my-2 border-bottom">
 					  <!-- ライブについて -->
 					  	<div class="col-2 ">
@@ -63,7 +63,7 @@
 						</div>
 
                <!-- タグ -->
-              <div class="row mt-2">
+              <div class="row -2">
 								<div class="article__tags__box col p-0", data-role="tagsinput" >
 									<span>タグ：</span>
 								  <% diary.tag_list.each do |tag| %>
@@ -73,16 +73,13 @@
 								  <% end %>
 								</div>
 							</div>
-
-
-						<div class="row my-1">
+   				</div><!--右半分-->
+				</div><!--row-->
+						<div class="row my-3">
 							<div class="col-12 text-center " >
 								<%= link_to "Read Here!",diary_path(diary),class: "btn btn-dark btn-sm" %>
 							</div>
 						</div>
-
-					</div><!--右半分-->
-				</div><!--row-->
 		</div><!--col-6 diary本体-->
 	</div><!--row justify-content-center-->
 <% end %><!--each分-->

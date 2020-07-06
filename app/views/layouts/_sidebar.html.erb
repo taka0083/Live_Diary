@@ -1,8 +1,8 @@
-<div class="col-sm-2 bg-dark mx-2 fixed-left" >
-	<h1 class="my-2 text-white">
+<div class="col-md-2 bg-dark mx-2 fixed-left sidebar" >
+	<h1 class="my-2 text-white text-center">
 		MENU
 	</h1>
-	 <ul class="list-unstyled text-white">
+	 <ul class="list-unstyled text-white text-center">
 	 	<%= link_to diaries_path do %>
 	 		<li>All Diary</li>
 	 	<% end %>
@@ -19,7 +19,7 @@
 	 	<%= link_to new_diary_path do %>
 	 	<li>Write Diary</li>
 	 	<% end %>
-	 	<li> <%= link_to "Logout", destroy_user_session_path,class:" glyphicon glyphicon-log-out", method: :delete %>
+	 	<li> <%= link_to "Logout", destroy_user_session_path,class:" glyphicon glyphicon-log-out ", method: :delete %>
 		</li>
 	 </ul>
 </div>

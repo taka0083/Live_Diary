@@ -24,12 +24,34 @@
 body {
 	font-family: 'Noto Sans JP', sans-serif;
 
+  }
 
+header{
+  height:50px;
+background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	}
 
+.sidebar{
+  height:100vh;
+position: sticky;
+position: -webkit-sticky;
+
+top:0;
+}
+
+
 li{
-	padding-top:20px;
+	padding:10px 0px;
+  font-size:30px;
+  color:#DAA25A;
+}
+
+li:hover{
+  background-color: #696969;
+  transiton: 1.0s;/*1.0秒かける*/
 }
 
 .rounded-circle{
