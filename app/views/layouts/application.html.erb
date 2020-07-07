@@ -15,10 +15,11 @@
   </head>
 
   <body>
-    <div clsss="container-fluid">
-    <%= yield %>
+    <div class="wrap">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    <%= render 'layouts/footer' %>
     </div>
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

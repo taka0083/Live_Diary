@@ -1,22 +1,41 @@
 <div class="row">
   <%= render'layouts/sidebar' %>
-  <div class="col-sm-9">
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <h2>フォロー中</h2>
-        <% @user.following_user.where.not(id: @user.id).each do |user| %>
-         <div class="table table-dark">
-          <tr>
-            <td><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></td>
-            <td><%= user.name %></td>
-          <% if current_user.following?(user) %>
-            <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></td>
-          <% else %>
-            <td><%= link_to 'フォローする', follow_path(user.id), method: :POST %></td>
-          <% end %>
-            <td><%= link_to "show", user_path(user) %></td>
-          </tr>
-        <% end %>
+  <div class="col-10 background px-0">
+    <div class="text-center">
+      <div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
+        <h1 class="top-text"><%= @user.name %>'s Follow</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <% if @user.following_user.count == 0 %>
+          <div class="col text-center" style="background-color:white;">
+          <h2>誰もフォローをしてません</h2>
+          </div>
+      <%else%>
+
+        <div class="col-6 mt-3" style="background-color:white;">
+          <table class="table table-hover">
+            <thead>
+              <tr><th colspan=2>Name</th><th></th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @user.following_user.where.not(id: @user.id).each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%></td>
+                <td><%= user.name %></td>
+              <% if current_user.following?(user) %>
+                <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %></td>
+              <% else %>
+                <td><%= link_to 'フォローする', follow_path(user.id), method: :POST %></td>
+              <% end %>
+                <td><%= link_to "show", user_path(user) %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

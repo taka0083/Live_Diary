@@ -1,8 +1,12 @@
 <div class="row">
 	<%= render'layouts/sidebar' %>
-	<div class="col-sm-9">
-	<h1>タイムライン</h1>
-  <%= render'layouts/timeline',diaries:@diaries%>
+	<div class="col-10 background px-0">
+		<div class="text-center">
+			<div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
+				<h1 class="top-text">Frend's Diary</h1>
+			</div>
+		</div>
+         <%= render'layouts/timeline',diaries:@diaries %>
 
 	</div><!--col-sm-9-->
 </div><!--一番上のrow-->

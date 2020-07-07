@@ -1,29 +1,43 @@
 <div class="row">
-<%= render'layouts/sidebar' %>
-    <div class= "col-8">
-	<% if @user.errors.any? %>
-	  <div id="error_explanation" class="alert alert-danger">
-	    <ul>
-	      <% @user.errors.full_messages.each do |message| %>
+  <%= render'layouts/sidebar' %>
+  <div class="col-10 background px-0">
+    <div class="text-center">
+      <div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
+        <h1 class="top-text">Edit</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+    	<div class= "col-8">
+		<% if @user.errors.any? %>
+	  		<div id="error_explanation" class="alert alert-danger">
+	        <ul>
+	        <% @user.errors.full_messages.each do |message| %>
 	        <li><%= message %></li>
-	      <% end %>
-	    </ul>
-	  </div>
-	<% end %>
-	<%= form_for @user,:url => {:action => :update} do |f| %>
-
-	    <%= f.attachment_field :user_image, format: 'jpeg' ,class: "file" %>
-		<div>
-			<%= f.label :ユーザー名 %>
-			<%= f.text_field :name %>
+	        <% end %>
+	        </ul>
+		    </div>
+		 <% end %>
 		</div>
-		<div>
-			<%= f.label :メールアドレス %>
-			<%= f.email_field :email %>
+	    <div class="col-6 p-3"style="background-color: white">
+            <div class="form-item">
+				<%= form_for @user,:url => {:action => :update} do |f| %>
+			</div>
+			<p>写真</p>
+		    <%= f.attachment_field :user_image, format: 'jpeg' ,class: "file" %>
+		      <div class="form-item">
+		        <label for="name"></label><p>名前</p>
+		         <%= f.text_field :name, autofocus: true, autocomplete: "name" ,placeholder:
+		         "Username",class: "font-awesome" %>
+		      </div>
+		      <div class="form-item">
+		        <label for="email"></label><p>メールアドレス</p>
+		         <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "Email"%>
+		      </div>
+			<div class="text-right">
+				<%= f.submit "変更する" , class: "btn btn-dark "%>
+			</div>
+			<% end %>
 		</div>
-		<div>
-			<%= f.submit "登録" %>
-		</div>
-	<% end %>
 	</div>
 </div>
+

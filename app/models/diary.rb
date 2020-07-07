@@ -3,6 +3,16 @@ class Diary < ApplicationRecord
 	attachment :live_image
 	has_many :comment, dependent: :destroy
 	has_many :favorites, dependent: :destroy
+
+  validates :artist_name, presence:true
+  validates :live_name, presence:true
+  validates :title, presence:true
+  validates :impression, presence:true
+  validates :date, presence:true
+  validates :setlist, presence:true
+  validates :place, presence:true
+
+
 	def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
     end
@@ -16,3 +26,6 @@ class Diary < ApplicationRecord
   acts_as_taggable
 
 end
+
+
+

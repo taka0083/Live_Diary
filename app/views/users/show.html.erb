@@ -1,10 +1,17 @@
 <div class="row">
 	<%= render'layouts/sidebar' %>
-	<div class="col-sm-9">
+	<div class="col-10 background px-0">
+		<div class="text-center">
+			<div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
+				<h1 class="top-text"><%= @user.name %>'s diary</h1>
+			</div>
+		</div>
 		<!-- プロフィールテンプレート -->
 		<%= render'layouts/profile',user:@user,favoriting:@favorite%>
 	    <% if @user.diaries.count == 0 %>
+	    	<div class="col text-center">
 	    	<h2>投稿がありません</h2>
+	    	</div>
 	    <%else%>
  				<%= render'layouts/timeline',diaries:@diaries %>
 	    <%end%>

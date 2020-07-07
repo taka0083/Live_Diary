@@ -78,7 +78,7 @@
 					<div class="col">
 						<div id="events-info">
 							<div class="card">
-								<div class="card-header " data-toggle="collapse" data-target="#ac1">
+								<div class="card-header "data-toggle="collapse" data-target="#ac1">
 									<h3>セットリスト</h3>
 								</div>
 								<div class="collapse" id="ac1" data-parent="#events-info">
@@ -137,9 +137,11 @@
 							</div>
 							<div class="card-body">
 								<% @diary.favorites.each do |favorite| %>
+								<div class=col pt-1>
 									<%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
-            			<%= favorite.user.name %>
-            		<%end%>
+            			        	<%= favorite.user.name %>
+            			        </div>
+            		            <%end%>
 
 
 							</div>

@@ -1,4 +1,5 @@
-<div class="col-md-2 bg-dark mx-2 fixed-left sidebar" >
+<div class="col-md-2 bg-dark " >
+	<div class="sidebar">
 	<h1 class="my-2 text-white text-center">
 		MENU
 	</h1>
@@ -7,11 +8,12 @@
 	 		<li>All Diary</li>
 	 	<% end %>
 	 	<%= link_to diaries_follower_path do %>
-	 	<li>Frends Diary</li>
+	 	<li>Frend's Diary</li>
 	 	<%end%>
 	 	<%= link_to user_path(current_user.id) do %>
 	 	<li>My page</li>
 	 	<% end %>
+	 	<br>
 	 	<%= link_to diaries_search_path do %>
 	 	<li>Search</li>
 	 	<%end%>
@@ -19,7 +21,10 @@
 	 	<%= link_to new_diary_path do %>
 	 	<li>Write Diary</li>
 	 	<% end %>
-	 	<li> <%= link_to "Logout", destroy_user_session_path,class:" glyphicon glyphicon-log-out ", method: :delete %>
-		</li>
+	 	<%= link_to destroy_user_session_path, method: :delete do %>
+	 	<li class="m-auto">Logout</li>
+	 	<% end %>
+
 	 </ul>
+	</div>
 </div>
