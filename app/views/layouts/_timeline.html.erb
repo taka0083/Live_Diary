@@ -57,7 +57,7 @@
 
 							<!-- いいね -->
 							<div id="likes_buttons_<%= diary.id %>" class="col">
-            <%= render'layouts/favorite',diary:diary  %>
+                <%= render'layouts/favorite',diary:diary  %>
           		</div>
 
 						</div>
@@ -77,9 +77,10 @@
 				</div><!--row-->
 						<div class="row my-3">
 							<div class="col-12 text-center " >
-								<%= link_to "Read Here!",diary_path(diary),class: "btn btn-dark btn-sm" %>
+								<%= link_to "Read More!",diary_path(diary),class: "btn btn-dark btn-sm" %>
 							</div>
 						</div>
 		</div><!--col-6 diary本体-->
 	</div><!--row justify-content-center-->
 <% end %><!--each分-->
+

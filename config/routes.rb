@@ -19,4 +19,5 @@ get 'diaries/search' => 'diaries#search',as: 'diaries_search'
   end
 
 
+
 end

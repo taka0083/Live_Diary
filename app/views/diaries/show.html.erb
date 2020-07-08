@@ -1,6 +1,11 @@
 <div class="row">
-	<%= render'layouts/sidebar' %>
-	<div class="col-sm-9">
+  <%= render'layouts/sidebar' %>
+  <div class="col-10 background px-0">
+    <div class="text-center">
+      <div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
+        <h1 class="top-text">Read Diary</h1>
+      </div>
+    </div>
 		<%= render'layouts/profile',user:@user %>
 		<div class="row justify-content-center" >
 			<div class="col-6">
@@ -79,7 +84,7 @@
 						<div id="events-info">
 							<div class="card">
 								<div class="card-header "data-toggle="collapse" data-target="#ac1">
-									<h3>セットリスト</h3>
+									<h3>セットリスト(クリックで表示)</h3>
 								</div>
 								<div class="collapse" id="ac1" data-parent="#events-info">
 									<div class="card-body align-content-center"><%= simple_format(@diary.setlist) %></div>
@@ -122,8 +127,9 @@
 
 				<% if @user == current_user %>
 				<div class="row mt-3">
-					<div class="col">
-					<%= link_to "編集する" ,edit_diary_path ,class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
+					<div class="col text-center">
+					<%= link_to "編集する" ,edit_diary_path ,class: "btn btn-info"%>
+					<%= link_to "削除する", diary_path, method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-danger" %>
 					</div>
 				</div>
 				<%end%>
@@ -142,7 +148,6 @@
             			        	<%= favorite.user.name %>
             			        </div>
             		            <%end%>
-
 
 							</div>
 						</div>
@@ -180,7 +185,7 @@
 					<%= form_for [@diary, @comment] do |f| %>
 					  <div class="col-12">
 					    <%= f.text_area :comment,cols:'100', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
-					    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+					    <%= f.submit "送信する", class: "btn btn-dark btn-lg btn-base-1 mt-20 pull-right" %>
 					  </div>
 					<% end %>
 				</div>

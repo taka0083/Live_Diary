@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @diaries =Diary.all.reverse_order
+    @diaries = Diary.page(params[:page]).per(10).reverse_order
   end
 
   def search
@@ -39,6 +39,16 @@ class DiariesController < ApplicationController
     flash[:notice] ="投稿しました"
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    @diary =Diary.find(params[:id])
+    if @diary.destroy
+    redirect_to user_path(@diary.user)
+    flash[:notice] ="削除しました"
+    else
+      render 'show'
     end
   end
 

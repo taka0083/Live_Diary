@@ -46,6 +46,8 @@ gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 
 gem 'faker', '2.1.2' #faker追加
