@@ -12,7 +12,7 @@
 //
 
 //bootstrap追加分
-//= require jquery3
+//= require jquery
 //= require popper
 //= require bootstrap
 //= require bootstrap-sprockets

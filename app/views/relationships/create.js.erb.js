@@ -1,1 +1,0 @@
-$('#follow_buttons_<%= @user.id %>').html("<%= render'layouts/profile',user:@user  %>");

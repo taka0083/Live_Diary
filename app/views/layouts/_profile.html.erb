@@ -11,9 +11,9 @@
 
 	      	<div class="col-4 my-auto" id="follow_buttons_<%= user.id %>">
             <% if current_user.following?(user) %>
-              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, remote: true ,class: "btn btn-outline-warning btn-sm"%>
+              <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST,class: "btn btn-outline-warning btn-sm"%>
             <% else %>
-              <%= link_to 'フォローする', follow_path(user.id), method: :POST, remote: true ,class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to 'フォローする', follow_path(user.id), method: :POST,class: "btn btn-outline-primary btn-sm" %>
             <% end %>
 	      	</div>
 	      <% end %>

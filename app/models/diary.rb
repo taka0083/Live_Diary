@@ -19,8 +19,7 @@ class Diary < ApplicationRecord
 
   def self.search(search) #self.でクラスメソッドとしている
      search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Diary.where(['artist_name LIKE ? OR live_name LIKE ? OR place LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
-
+      Diary.where(['artist_name LIKE ? OR live_name LIKE ? OR place LIKE ? ', "%#{search}%", "%#{search}%", "%#{search}%"])
   end
 
   acts_as_taggable

@@ -181,10 +181,10 @@
 		    </div>
 		  </div>
 
-        <div class="row">
+        <div class="row p-0">
 					<%= form_for [@diary, @comment] do |f| %>
-					  <div class="col-12">
-					    <%= f.text_area :comment,cols:'100', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
+					  <div class="col-12 p-0">
+					    <%= f.text_area :comment,cols:'110', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
 					    <%= f.submit "送信する", class: "btn btn-dark btn-lg btn-base-1 mt-20 pull-right" %>
 					  </div>
 					<% end %>

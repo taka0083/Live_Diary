@@ -6,7 +6,7 @@
 
 				<!-- ヘッダー -->
 	      <div class="row justify-content-center"style="height:50px;background-color:rgba(218,162,90,0.5)">
-	      	<div class="col-2 mt-1">
+	      	<div class="col-2 mt-1" >
 	      		<%= link_to user_path(diary.user) do %>
 	      		<%= attachment_image_tag @user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "40x40" %><%end%></div>
 	      	<div class="col-6 pl-0 align-self-center text-left">
@@ -17,7 +17,7 @@
 
 	      		<!-- ライブの写真 -->
 	      	<div class="row">
-	      			<div class="col-md-6 my-3 align-middle"> <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg",size: "250x250"%></div>
+	      			<div class="col-md-6 my-3 align-items-center" > <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg",size: "250x250"%></div>
 
 	      	<!-- 右半分 -->
 	      	<div class="col-md-6 ">
@@ -56,23 +56,24 @@
 							</div>
 
 							<!-- いいね -->
-							<div id="likes_buttons_<%= diary.id %>" class="col">
+							<div id="favorite_buttons_<%= diary.id %>" class="col">
                 <%= render'layouts/favorite',diary:diary  %>
           		</div>
 
 						</div>
 
                <!-- タグ -->
-              <div class="row -2">
-								<div class="article__tags__box col p-0", data-role="tagsinput" >
-									<span>タグ：</span>
-								  <% diary.tag_list.each do |tag| %>
-								    <span class="badge badge badge-info">
-								      <%= tag %>
-								    </span>
-								  <% end %>
-								</div>
+            <div class="row -2">
+							<div class="article__tags__box col p-0", data-role="tagsinput" >
+								<span>タグ：</span>
+							  <% diary.tag_list.each do |tag| %>
+							    <span class="badge badge badge-info">
+							      <%= tag %>
+							    </span>
+							  <% end %>
 							</div>
+						</div>
+
    				</div><!--右半分-->
 				</div><!--row-->
 						<div class="row my-3">
