@@ -24,6 +24,7 @@ class Diary < ApplicationRecord
 
   acts_as_taggable
 
+  paginates_per 10
 end
 
 

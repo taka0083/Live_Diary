@@ -1,6 +1,6 @@
 <div class="col-md-2 bg-dark " >
 	<div class="sidebar">
-    <div class="logo pt-2 text-center">
+    <div class="logo py-2 text-center">
        <%= link_to(root_path) do %>
            <%= image_tag 'logo.jpg', size: "170x60" %>
          <% end %>
@@ -10,22 +10,21 @@
 	 		<li>All Diary</li>
 	 	<% end %>
 	 	<%= link_to diaries_follower_path do %>
-	 	<li>Friend's Diary</li>
+	 		<li>Friend's Diary</li>
 	 	<%end%>
 	 	<%= link_to user_path(current_user.id) do %>
-	 	<li>My page</li>
+	 		<li>My page</li>
 	 	<% end %>
 	 	<br>
 	 	<%= link_to diaries_search_path do %>
-	 	<li>Search</li>
+	 		<li>Search</li>
 	 	<%end%>
 	 	<%= link_to new_diary_path do %>
-	 	<li>Write Diary</li>
+	 		<li>Write Diary</li>
 	 	<% end %>
 	 	<%= link_to destroy_user_session_path, method: :delete do %>
-	 	<li class="m-auto">Logout</li>
+	 		<li class="m-auto">Logout</li>
 	 	<% end %>
-
 	 </ul>
 	</div>
 </div>

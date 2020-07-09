@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user!
   def show
   	@user = User.find(params[:id])
-  	@diaries =@user.diaries
+  	@diaries =@user.diaries.page(params[:page]).per(10).reverse_order
   end
 
   def edit
@@ -19,7 +19,7 @@ before_action :authenticate_user!
   end
   def favorites
     @user=User.find(params[:id])
-    @diaries = Diary.joins(:favorites).where(favorites: {user_id: @user.id})
+    @diaries = Diary.page(params[:page]).per(10).reverse_order.joins(:favorites).where(favorites: {user_id: @user.id})
   end
 
   def follow

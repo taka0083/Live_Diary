@@ -2,10 +2,13 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   def index
     @diaries = Diary.page(params[:page]).per(10).reverse_order
+    if params[:tag_name]
+      @diaries = Diary.page(params[:page]).per(10).reverse_order.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def search
-    @diaries =Diary.search(params[:search])
+    @diaries =Diary.page(params[:page]).per(10).reverse_order.search(params[:search])
   end
 
   def show
@@ -35,7 +38,7 @@ class DiariesController < ApplicationController
     @diary =Diary.new(diary_params)
     @diary.user_id=current_user.id
     if @diary.save
-    redirect_to diary_path(diary)
+    redirect_to diary_path(@diary)
     flash[:notice] ="投稿しました"
     else
       render 'new'
@@ -53,7 +56,7 @@ class DiariesController < ApplicationController
   end
 
   def follower
-    @diaries = Diary.where(user_id:current_user.follower.ids)
+    @diaries = Diary.page(params[:page]).per(10).reverse_order.where(user_id:current_user.follower.ids)
   end
 
   private
