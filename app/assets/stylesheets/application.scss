@@ -23,15 +23,7 @@
 
 body {
 	font-family: 'Noto Sans JP', sans-serif;
-
   }
-
-header{
-  height:50px;
-background: #f12711;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 
 .container-fluid{
@@ -52,6 +44,19 @@ width:100%;
   top:0;
 }
 
+.sidebar li{
+  padding:10px 0px;
+  font-size:30px;
+  color:#DAA25A;
+  text-shadow: 0px 5px 3px #555;
+}
+
+li:hover{
+  background-color: #696969;
+  transiton: 1.0s;/*1.0秒かける*/
+}
+
+
 .background{
   background-image:url(library.jpg);
   background-attachment: fixed;
@@ -69,17 +74,6 @@ left: 0;
 }
 
 
-.sns{
-    margin-top:20px;
-  position: absolute;
-  right:80px;
-}
-
-li {
-  display: inline-block;
-  padding-right:10px
-}
-
 .copy_right{
   margin-top:20px;
   position: absolute;
@@ -89,18 +83,10 @@ li {
 
 .top-text{
   color:white;
+  text-shadow: 0px 5px 4px #DAA25A;
 }
 
-li{
-	padding:10px 0px;
-  font-size:30px;
-  color:#DAA25A;
-}
 
-li:hover{
-  background-color: #696969;
-  transiton: 1.0s;/*1.0秒かける*/
-}
 
 .rounded-circle{
     width:40px;

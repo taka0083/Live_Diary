@@ -12,7 +12,7 @@
 	      	<div class="col-6 pl-0 align-self-center text-left ">
 	      		<%= link_to user_path(diary.user), class: "text-black" do %>
 	      		<%= diary.user.name %><%end%></div>
-	      	<div class="col-md-4 align-self-center text-right">	<%= diary.date %></div>
+	      	<div class="col-md-4 align-self-center text-right">	<%= diary.date.strftime('%Y/%m/%d') %></div>
 	      	</div>
 
 	      		<!-- ライブの写真 -->
@@ -68,7 +68,7 @@
 								<span>タグ：</span>
 							  <% diary.tag_list.each do |tag| %>
 							    <span class="badge badge badge-info">
-							       <%= link_to diaries_path(tag_name: tag), class: "text-white" do %><%= tag %><% end %>
+							       <%= link_to diaries_search_path(tag_name: tag), class: "text-white" do %><%= tag %><% end %>
 							    </span>
 							  <% end %>
 							</div>
@@ -76,16 +76,18 @@
 
    				</div><!--右半分-->
 				</div><!--row-->
-						<div class="row my-3">
-							<div class="col-12 text-center " >
-								<%= link_to "Read More!",diary_path(diary),class: "btn btn-dark btn-sm" %>
-							</div>
-						</div>
+				<!-- diary showのボタン -->
+				<div class="row my-3">
+					<div class="col-12 text-center " >
+						<%= link_to "Read More!",diary_path(diary),class: "btn btn-dark btn-sm" %>
+					</div>
+				</div>
 		</div><!--col-6 diary本体-->
 	</div><!--row justify-content-center-->
 <% end %><!--each分-->
-<div class="row">
-	<div class="col text-center">
+<!-- kaminari -->
+<div class="row justify-content-center">
+	<div class="col-3">
 		 <%= paginate diaries %>
 	</div>
 </div>

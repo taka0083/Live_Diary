@@ -2,13 +2,14 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   def index
     @diaries = Diary.page(params[:page]).per(10).reverse_order
-    if params[:tag_name]
-      @diaries = Diary.page(params[:page]).per(10).reverse_order.tagged_with("#{params[:tag_name]}")
-    end
+
   end
 
   def search
     @diaries =Diary.page(params[:page]).per(10).reverse_order.search(params[:search])
+    if params[:tag_name]
+      @diaries = Diary.page(params[:page]).per(10).reverse_order.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show

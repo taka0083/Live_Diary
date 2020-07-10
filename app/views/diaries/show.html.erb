@@ -17,7 +17,7 @@
 								<h3>日付</h3>
 							</div>
 							<div class="card-body">
-								<%= @diary.date %>
+								<%= @diary.date.strftime('%Y/%m/%d')  %>
 							</div>
 						</div>
 					</div>
@@ -139,16 +139,19 @@
 					<div class=col>
 						<div class="card">
 							<div class="card-header">
-								<h3>いいねした人</h3>
+								<h3>いいね <%= @diary.favorites.count %>人</h3>
 							</div>
 							<div class="card-body">
 								<% @diary.favorites.each do |favorite| %>
-								<div class=col pt-1>
-									<%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
-            			        	<%= favorite.user.name %>
-            			        </div>
-            		            <%end%>
-
+									<div class="row my-1">
+										<div class=col>
+											<%= link_to user_path(favorite.user) do %>
+												<%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
+			            			   <%= favorite.user.name%>
+			            		<% end %>
+		            		</div>
+		            	</div>
+            		<%end%>
 							</div>
 						</div>
 					</div>
@@ -159,7 +162,7 @@
 					<div class=col>
 						<div class="card">
 							<div class="card-header">
-								<h3>コメント</h3>
+								<h3>コメント <%= @diary.comment.count %>件</h3>
 							</div>
 							<% @diary.comment.each do |comment| %>
 
@@ -172,7 +175,7 @@
           				<div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
           				<% if comment.user_id == current_user.id %>
 										<div class="col text-right">
-    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm" %>
+    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm", data: {confirm: "本当にいいですか？"} %>
   									</div>
   								<% end %>
   							</div>
@@ -181,20 +184,14 @@
 		    </div>
 		  </div>
 
-        <div class="row p-0">
+        <div class="row p-0 mb-2">
 					<%= form_for [@diary, @comment] do |f| %>
 					  <div class="col-12 p-0">
 					    <%= f.text_area :comment,cols:'110', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
-					    <%= f.submit "送信する", class: "btn btn-dark btn-lg btn-base-1 mt-20 pull-right" %>
+					    <%= f.submit "送信する", class: "btn btn-dark btn-sg btn-base-1 mt-20 pull-right" %>
 					  </div>
 					<% end %>
 				</div>
-
-
-
-
-
-
 			</div>
 		</div>
 	</div>

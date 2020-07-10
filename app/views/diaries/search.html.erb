@@ -3,14 +3,14 @@
 	<div class="col-10 background px-0">
 		<div class="text-center">
 			<div class="col border-bottom border-dark" style="background-color:rgba(0,0,0,0.5);">
-				<h1 class="top-text">Serch</h1>
+				<h1 class="top-text">Serch Diary</h1>
 			</div>
 		</div>
 		<div class="row mt-3">
 			<div class="col text-center">
 				<%= form_tag diaries_search_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
 				  <p>
-				    <%= text_field_tag :search, params[:search] %>
+				    <%= text_field_tag :search, params[:search],placeholder: "アーティスト,ライブ" %>
 				    <%= submit_tag "Search", :name => nil %>
 				  </p>
 			<% end %>
