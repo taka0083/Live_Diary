@@ -28,6 +28,7 @@
                <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST,class: "btn btn-outline-warning btn-sm" %></td>
               <% else %>
                 <td><%= link_to 'フォローする', follow_path(user.id), method: :POST,class: "btn btn-outline-primary btn-sm" %></td>
+              <% end %>
                 <td><%= link_to "Go Diary", user_path(user),class: "btn btn-outline-dark btn-sm" %></td>
               </tr>
             <% end %>
@@ -38,5 +39,3 @@
     </div>
   </div>
 </div>
-
-

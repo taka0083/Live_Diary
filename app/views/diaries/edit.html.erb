@@ -24,7 +24,7 @@
 				<h4 class="p-2"style="color:white;border-bottom:1px solid white;" >あなたの思い出を編集しよう</h4>
 			</div>
 			<div class="write_body">
-				<%= form_for @diary,:url => {:action => :create} do |f| %>
+				<%= form_for @diary,:url => {:action => :update} do |f| %>
 					<div class="mt-2">
 						<%= f.label :写真 %>
 				        <%= f.attachment_field :live_image, format: 'jpeg' ,class: "file" %>

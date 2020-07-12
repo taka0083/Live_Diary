@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 
-get 'diaries/follower' => 'diaries#follower',as: 'diaries_follower'
-get 'diaries/search' => 'diaries#search',as: 'diaries_search'
+  get 'diaries/follower' => 'diaries#follower',as: 'diaries_follower'
+  get 'diaries/search' => 'diaries#search',as: 'diaries_search'
   resources :diaries, only: [:index,:show,:edit,:new,:update,:destroy,:create] do
   	resources :comments, only: [:create,:destroy]
   	resource :favorites, only: [:create,:destroy]
