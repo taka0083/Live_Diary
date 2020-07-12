@@ -19,7 +19,9 @@ before_action :authenticate_user!
   end
   def favorites
     @user=User.find(params[:id])
+    # いいねしているツイートを呼び出す
     @diaries = Diary.page(params[:page]).per(10).reverse_order.joins(:favorites).where(favorites: {user_id: @user.id})
+
   end
 
   def follow

@@ -39,8 +39,8 @@ class DiariesController < ApplicationController
     @diary =Diary.new(diary_params)
     @diary.user_id=current_user.id
     if @diary.save
-    redirect_to diary_path(@diary)
-    flash[:notice] ="投稿しました"
+      redirect_to diary_path(@diary)
+      flash[:notice] ="投稿しました"
     else
       render 'new'
     end
@@ -56,8 +56,8 @@ class DiariesController < ApplicationController
     end
   end
 
-  def follower
-    @diaries = Diary.page(params[:page]).per(10).reverse_order.where(user_id:current_user.follower.ids)
+  def following
+    @diaries = Diary.page(params[:page]).per(10).reverse_order.where(user_id:current_user.following_user.ids)
   end
 
   private

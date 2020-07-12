@@ -8,7 +8,7 @@
 	      <div class="row justify-content-center"style="height:50px;background-color:rgba(218,162,90,0.5)">
 	      	<div class="col-2 mt-1" >
 	      		<%= link_to user_path(diary.user) do %>
-	      		<%= attachment_image_tag @user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "40x40" %><%end%></div>
+	      		<%= attachment_image_tag diary.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "40x40" %><%end%></div>
 	      	<div class="col-6 pl-0 align-self-center text-left ">
 	      		<%= link_to user_path(diary.user), class: "text-black" do %>
 	      		<%= diary.user.name %><%end%></div>
