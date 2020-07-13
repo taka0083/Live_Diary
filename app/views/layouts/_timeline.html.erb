@@ -17,7 +17,7 @@
 
 	      		<!-- ライブの写真 -->
 	      	<div class="row">
-	      			<div class="col-md-6 my-3 align-items-center" > <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:"img-fluid rounded" ,fallback: "no_image.jpg",size: "250x250"%></div>
+	      			<div class="col-md-6 my-3" > <%= attachment_image_tag diary, :live_image, format: 'jpeg'  ,class:" rounded" ,fallback: "no_image.jpg",size: "230x230"%></div>
 
 	      	<!-- 右半分 -->
 	      	<div class="col-md-6 ">
@@ -27,25 +27,25 @@
 					  		<p><i class="fas fa-music"></i></p>
 					  	</div>
 					  	<div class="col-10 ">
-					  		<h4 ><%= diary.artist_name %></h4>
+					  		<p ><%= diary.artist_name %></p>
 					  	</div>
 					  	<div class="col-2">
 						  	<p><i class="fas fa-compact-disc"></i></p>
 						  </div>
 						  <div class="col-10">
-						  	<h4><%= diary.live_name %></h4>
+						  	<p><%= diary.live_name %></p>
 						  </div>
 						  <div class="col-2">
 						  	<p><i class="fas fa-map"></i></p>
 						  </div>
 						  <div class="col-10">
-						  	<h4><%= diary.place %></h4>
+						  	<p><%= diary.place %></p>
 						  </div>
 						  <div class="col-2">
 						  	<p><i class="fas fa-book"></i></p>
 						  </div>
 						  <div class="col-10">
-						  	<h4><%= diary.title %></h4>
+						  	<p><%= diary.title %></p>
 						  </div>
 						</div>
 						<!-- コメント -->

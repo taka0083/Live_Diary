@@ -9,7 +9,7 @@
 		<!-- プロフィールテンプレート -->
 		<%= render'layouts/profile',user:@user,favoriting:@favorite%>
 	    <% if @user.diaries.count == 0 %>
-	    	<div class="col text-center">
+	    	<div class="col-6 text-center bg-white">
 	    	<h2>投稿がありません</h2>
 	    	</div>
 	    <%else%>

@@ -1,5 +1,15 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user,{only: :edit}
+
+#他の人が編集できないように
+  def ensure_correct_user
+    @diary =Diary.find(params[:id])
+    if @diary.user_id != current_user.id
+       redirect_to diaries_path
+    end
+  end
+
   def index
     @diaries = Diary.page(params[:page]).per(10).reverse_order
 

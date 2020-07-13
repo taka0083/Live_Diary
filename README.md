@@ -1,6 +1,6 @@
 # Live Diary
 ## サイト概要
-音楽系のSNS。音楽のライブの写真・曲・感想を記録として残し、日記のような形でSNSで発信をする。好きなアーティストを検索することもできる。フォロー機能やいいね機能もあり、同じライブに行った人が他にどんなアーティストが好きなのかもわかる。カレンダー機能で予定を入れることもできる。
+音楽系のSNS。音楽のライブの写真・曲・感想を記録として残し、日記のような形でSNSで発信をする。好きなアーティストを検索することもできる。フォロー機能やいいね機能もあり、同じライブに行った人が他にどんなアーティストが好きなのかもわかる。
 
 ### サイトテーマ
 ライブ専用の日記＋音楽好きとの共有
@@ -18,6 +18,8 @@
 ・興味があるアーティストのライブがどう言ったものか検索をする
 
 ## 設計書
+データベースデザイン
+https://docs.google.com/spreadsheets/d/1frex43RYVWm_QlcTpwfTRwtHZ1_QRwNxVC7WfdirF-w/edit?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1r5j481R_tvoqRVb8enP53aSO2FnHzSAch8fbSgf2EFw/edit?usp=sharing
