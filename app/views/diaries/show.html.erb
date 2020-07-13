@@ -102,7 +102,7 @@
 							</div>
 							<div class="card-body">
 								<h4 class="card-title"><%= @diary.title %></h4>
-								<div class="card-text"><%= @diary.impression %></div>
+								<div class="card-text"><%= simple_format(@diary.impression) %></div>
 							</div>
 						</div>
 					</div>
@@ -124,7 +124,7 @@
 				  	</div>
 				  </div>
 				</div>
-
+<!-- 本人だけ編集ができる　　　　　 -->
 				<% if @user == current_user %>
 				<div class="row mt-3">
 					<div class="col text-center">
@@ -158,31 +158,31 @@
 				</div>
 
 				<!-- コメント一覧 -->
-			<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>コメント <%= @diary.comment.count %>件</h3>
-							</div>
-							<% @diary.comment.each do |comment| %>
+				<div class="row mt-3">
+						<div class=col>
+							<div class="card">
+								<div class="card-header">
+									<h3>コメント <%= @diary.comment.count %>件</h3>
+								</div>
+								<% @diary.comment.each do |comment| %>
 
-								<div class="card-body p-2">
-									<div class="col-12">
-								<%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
-             		<%= comment.user.name %>
-              	<span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
-          				</div>
-          				<div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
-          				<% if comment.user_id == current_user.id %>
-										<div class="col text-right">
-    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm", data: {confirm: "本当にいいですか？"} %>
-  									</div>
-  								<% end %>
-  							</div>
-        			<% end %>
-		      </div>
-		    </div>
-		  </div>
+									<div class="card-body p-2">
+										<div class="col-12">
+									<%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
+	             		<%= comment.user.name %>
+	              	<span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
+	          				</div>
+	          				<div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
+	          				<% if comment.user_id == current_user.id %>
+											<div class="col text-right">
+	    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm", data: {confirm: "本当にいいですか？"} %>
+	  									</div>
+	  								<% end %>
+	  							</div>
+	        			<% end %>
+			      </div>
+			    </div>
+			  </div>
 
         <div class="row p-0 mb-2">
 					<%= form_for [@diary, @comment] do |f| %>

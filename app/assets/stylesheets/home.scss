@@ -85,10 +85,9 @@
         transition: all 0.2s $cubic-bezier 0s;
         color: $gold;
         display: inline-flex;
-        margin: 0; 
+        margin: 0;
         padding: 0.875em 1.428571429em;
         letter-spacing: 0.3em;
-        
         // The bottom border
         &::after {
             content: '';
@@ -102,7 +101,7 @@
             position: absolute;
             background: $gold;
         }
-        
+
         // The left/right/top borders
         span {
             display: block;
@@ -111,7 +110,7 @@
             width: 100%;
             top: 0;
             left: 0;
-            
+
             &::before,
             &::after {
                 content: '';
@@ -120,7 +119,7 @@
                 background: $gold;
                 transition: transform 0.2s $cubic-bezier;
             }
-            
+
             // Left & Right Border
             &:first-child {
                 height: 100%;
@@ -136,8 +135,7 @@
                     &::before { left: 0;  }
                     &::after  { right: 0; }
             }
-            
-            
+
             // Top Borders
             &:last-child {
                 width: 100%;
@@ -161,9 +159,8 @@
                         transform-origin: bottom right;
                     }
             }
-        }   
-        
-        
+        }
+
         // The Magic! Animate Border Drawing on Hover
         &:hover {
             opacity: 1;

@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 	def create
     diary = Diary.find(params[:diary_id])
-	comment = Comment.new(comment_params)
-	comment.user_id = current_user.id
+		comment = Comment.new(comment_params)
+		comment.user_id = current_user.id
     comment.diary_id = diary.id
     comment.save
     redirect_to diary_path(diary)
