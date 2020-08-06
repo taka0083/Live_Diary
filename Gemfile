@@ -48,6 +48,7 @@ gem 'font-awesome-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'rails-i18n'
 
 
 gem 'faker', '2.1.2' #faker追加

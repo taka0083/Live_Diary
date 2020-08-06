@@ -24,12 +24,11 @@
 
 $('.top').hide().fadeIn();
 
-$(document).ready(function(){
-    $('.login_button').each(function() {
-        $(this).append('<span></span><span></span>')
-    });
+$(document).ready(function () {
+	$('.login_button').each(function () {
+		$(this).append('<span></span><span></span>')
+	});
 });
-
 
 
 

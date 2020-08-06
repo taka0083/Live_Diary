@@ -6,193 +6,195 @@
         <h1 class="top-text">Read Diary</h1>
       </div>
     </div>
-		<%= render'layouts/profile',user:@user %>
-		<div class="row justify-content-center" >
-			<div class="col-6">
+    <%= render'layouts/profile',user:@user %>
+    <div class="row justify-content-center">
+      <div class="col-6">
 
-				<div class="row">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>日付</h3>
-							</div>
-							<div class="card-body">
-								<%= @diary.date.strftime('%Y/%m/%d')  %>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="row">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>日付</h3>
+              </div>
+              <div class="card-body">
+                <%= @diary.date.strftime('%Y/%m/%d')  %>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>アーティスト</h3>
-							</div>
-							<div class="card-body">
-								<%= @diary.artist_name %>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>アーティスト</h3>
+              </div>
+              <div class="card-body">
+                <%= @diary.artist_name %>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>ライブ名</h3>
-							</div>
-							<div class="card-body">
-								<%= @diary.live_name %>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>ライブ名</h3>
+              </div>
+              <div class="card-body">
+                <%= @diary.live_name %>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>場所</h3>
-							</div>
-							<div class="card-body">
-								<%= @diary.place %>
-							</div>
-						</div>
-					</div>
-				</div>
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>場所</h3>
+              </div>
+              <div class="card-body">
+                <%= @diary.place %>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>写真</h3>
-							</div>
-							<div class="card-body text-center">
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>写真</h3>
+              </div>
+              <div class="card-body text-center">
 
-								<%= attachment_image_tag @diary, :live_image, format: 'jpeg'  ,class:"img-fluid" ,fallback: "no_image.jpg"%>
+                <%= attachment_image_tag @diary, :live_image, format: 'jpeg'  ,class:"img-fluid" ,fallback: "no_image.jpg"%>
 
-							</div>
-						</div>
-					</div>
-				</div>
-
-
-				<!-- アコーディオン -->
-				<div class="row mt-3">
-					<div class="col">
-						<div id="events-info">
-							<div class="card">
-								<div class="card-header "data-toggle="collapse" data-target="#ac1">
-									<h3>セットリスト(クリックで表示)</h3>
-								</div>
-								<div class="collapse" id="ac1" data-parent="#events-info">
-									<div class="card-body align-content-center"><%= simple_format(@diary.setlist) %></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row mt-3">
-					<div class="col">
-						<div class="card">
-							<div class="card-header">
-								<h3>感想</h3>
-							</div>
-							<div class="card-body">
-								<h4 class="card-title"><%= @diary.title %></h4>
-								<div class="card-text"><%= simple_format(@diary.impression) %></div>
-							</div>
-						</div>
-					</div>
-				</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
+        <!-- アコーディオン -->
+        <div class="row mt-3">
+          <div class="col">
+            <div id="events-info">
+              <div class="card">
+                <div class="card-header " data-toggle="collapse" data-target="#ac1">
+                  <h3>セットリスト(クリックで表示)</h3>
+                </div>
+                <div class="collapse" id="ac1" data-parent="#events-info">
+                  <div class="card-body align-content-center"><%= simple_format(@diary.setlist) %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				<div class="row mt-3" >
-					<div class="col">
-						<div class="card">
-							<div class="card-header">タグ</div>
-							<div class="card-body">
-			  				<% @diary.tag_list.each do |tag| %>
-			    				<span class="badge badge badge-info">
-			      				<%= tag %>
-			    				</span>
-			  				<% end %>
-			  			</div>
-				  	</div>
-				  </div>
-				</div>
-<!-- 本人だけ編集ができる　　　　　 -->
-				<% if @user == current_user %>
-				<div class="row mt-3">
-					<div class="col text-center">
-					<%= link_to "編集する" ,edit_diary_path ,class: "btn btn-info"%>
-					<%= link_to "削除する", diary_path, method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-danger" %>
-					</div>
-				</div>
-				<%end%>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <h3>感想</h3>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><%= @diary.title %></h4>
+                <div class="card-text"><%= simple_format(@diary.impression) %></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-				<div class="row mt-3">
-					<div class=col>
-						<div class="card">
-							<div class="card-header">
-								<h3>いいね <%= @diary.favorites.count %>人</h3>
-							</div>
-							<div class="card-body">
-								<% @diary.favorites.each do |favorite| %>
-									<div class="row my-1">
-										<div class=col>
-											<%= link_to user_path(favorite.user) do %>
-												<%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
-			            			   <%= favorite.user.name%>
-			            		<% end %>
-		            		</div>
-		            	</div>
-            		<%end%>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<!-- コメント一覧 -->
-				<div class="row mt-3">
-						<div class=col>
-							<div class="card">
-								<div class="card-header">
-									<h3>コメント <%= @diary.comment.count %>件</h3>
-								</div>
-								<% @diary.comment.each do |comment| %>
+        <div class="row mt-3">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">タグ</div>
+              <div class="card-body">
+                <% @diary.tag_list.each do |tag| %>
+                <span class="badge badge badge-info">
+                  <%= tag %>
+                </span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 本人だけ編集ができる -->
+        <% if @user == current_user %>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <%= link_to "編集する" ,edit_diary_path ,class: "btn btn-info"%>
+            <%= link_to "削除する", diary_path, method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-danger" %>
+          </div>
+        </div>
+        <%end%>
 
-									<div class="card-body p-2">
-										<div class="col-12">
-									<%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
-	             		<%= comment.user.name %>
-	              	<span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
-	          				</div>
-	          				<div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
-	          				<% if comment.user_id == current_user.id %>
-											<div class="col text-right">
-	    									<%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm", data: {confirm: "本当にいいですか？"} %>
-	  									</div>
-	  								<% end %>
-	  							</div>
-	        			<% end %>
-			      </div>
-			    </div>
-			  </div>
+
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>いいね <%= @diary.favorites.count %>人</h3>
+              </div>
+              <div class="card-body">
+                <% @diary.favorites.each do |favorite| %>
+                <div class="row my-1">
+                  <div class=col>
+                    <%= link_to user_path(favorite.user) do %>
+                    <%= attachment_image_tag favorite.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg",size: "60x60"%>
+                    <%= favorite.user.name%>
+                    <% end %>
+                  </div>
+                </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- コメント一覧 -->
+        <div class="row mt-3">
+          <div class=col>
+            <div class="card">
+              <div class="card-header">
+                <h3>コメント <%= @diary.comment.count %>件</h3>
+              </div>
+              <% @diary.comment.each do |comment| %>
+
+              <div class="card-body p-2">
+                <div class="col-12">
+                  <%= link_to user_path(comment.user) do %>
+                  <%= attachment_image_tag comment.user, :user_image, format: 'jpeg'  ,class:"img-fluid rounded-circle" ,fallback: "no_image.jpg"%>
+                  <%= comment.user.name %>
+                  <%end%>
+                  <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
+                </div>
+                <div class="col-10 border-primary"><%= simple_format(comment.comment) %></div>
+                <% if comment.user_id == current_user.id %>
+                <div class="col text-right">
+                  <%= link_to "削除", diary_comment_path(comment.diary, comment), method: :delete, class: "btn btn-danger pull-right btn-sm", data: {confirm: "本当にいいですか？"} %>
+                </div>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
         <div class="row p-0 mb-2">
-					<%= form_for [@diary, @comment] do |f| %>
-					  <div class="col-12 p-0">
-					    <%= f.text_area :comment,cols:'110', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
-					    <%= f.submit "送信する", class: "btn btn-dark btn-sg btn-base-1 mt-20 pull-right" %>
-					  </div>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
+          <%= form_for [@diary, @comment] do |f| %>
+          <div class="col-12 p-0">
+            <%= f.text_area :comment,cols:'110', rows:'5', class: "form-control mw-100",placeholder: "コメントをここに" %>
+            <%= f.submit "送信する", class: "btn btn-dark btn-sg btn-base-1 mt-20 pull-right" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

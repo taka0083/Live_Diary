@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 
+
 module LiveDiary
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -18,6 +19,9 @@ module LiveDiary
     # the framework and any gems in your application.
     #config.web_console.whitelisted_ips = '10.0.2.2'
     config.time_zone = 'Tokyo'
+    # エラーを日本語化
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   end
 end
 

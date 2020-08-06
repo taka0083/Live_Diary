@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      diary: Diary
+    attributes:
+      diary:
+        artist_name: アーティスト名
+        live_name: ライブ名
+        title: タイトル
+        impression: 感想
+        date: 日付
+        place: 開催場所
+        setlist: セットリスト
