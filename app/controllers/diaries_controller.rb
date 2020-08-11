@@ -1,24 +1,28 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user,{only: :edit}
+  before_action :set_diary,only:[:index,:search,:following]
 
 #他の人が編集できないように
   def ensure_correct_user
     @diary =Diary.find(params[:id])
     if @diary.user_id != current_user.id
-       redirect_to diaries_path
+      redirect_to diaries_path
     end
   end
 
-  def index
+#上から投稿順で10投稿を表示
+  def set_diary
     @diaries = Diary.page(params[:page]).per(10).reverse_order
+  end
 
+  def index
   end
 
   def search
-    @diaries =Diary.page(params[:page]).per(10).reverse_order.search(params[:search])
+    @diaries = @diaries.search(params[:search])
     if params[:tag_name]
-      @diaries = Diary.page(params[:page]).per(10).reverse_order.tagged_with("#{params[:tag_name]}")
+      @diaries = @diaries.tagged_with("#{params[:tag_name]}")
     end
   end
 
@@ -67,8 +71,10 @@ class DiariesController < ApplicationController
   end
 
   def following
-    @diaries = Diary.page(params[:page]).per(10).reverse_order.where(user_id:current_user.following_user.ids)
+    @diaries = @diaries.where(user_id:current_user.following_user.ids)
   end
+
+
 
   private
   def diary_params
