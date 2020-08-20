@@ -58,6 +58,37 @@
               <div class="card-body">
                 <%= @diary.place %>
               </div>
+
+
+
+              <div id='map' class="mb-3 mx-4"></div>
+
+              <style>
+                #map {
+                  height: 300px;
+                }
+              </style>
+
+              <script>
+                function initMap() {
+                  let map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                      lat: <%=@diary.latitude %>,
+                      lng: <%=@diary.longitude %>
+                    },
+
+                    zoom: 15
+                  });
+                    marker = new google.maps.Marker({
+                    position: {lat: <%=@diary.latitude %>, lng: <%=@diary.longitude %>}, // マーカーの位置を指定
+                    map: map // マーカーを配置する地図を指定
+    });
+                }
+              </script>
+              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyz2Oot6MfaGToohHmPzdRfgb88V-u4c4&callback=initMap" async defer></script>
+
+
+
             </div>
           </div>
         </div>

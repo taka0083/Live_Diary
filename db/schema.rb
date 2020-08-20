@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_073341) do
+ActiveRecord::Schema.define(version: 2020_08_20_082514) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_073341) do
     t.datetime "updated_at", null: false
     t.text "setlist"
     t.string "place"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "diary_comments", force: :cascade do |t|
