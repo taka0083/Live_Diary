@@ -11,3 +11,10 @@ ja:
         date: 日付
         place: 開催場所
         setlist: セットリスト
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        encrypted_password": パスワード
